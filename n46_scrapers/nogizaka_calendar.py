@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from bottle import route, run, template
 import requests
 
 def scrape():
@@ -24,5 +25,10 @@ def scrape():
 
     #return updates
 
+@route('/parse/nogi/sched')
+def index():
+    return template("<b>hello world</b>!", name=name)
+
 if __name__ == "__main__":
-    scrape()
+    #scrape()
+    run(host='localhost', port=8080)
